@@ -3,7 +3,7 @@
 <title>Laire</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mainstyle.css') }}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="https://t6.rbxcdn.com/c12c1ae65824815a2869db34239789da">
@@ -152,10 +152,10 @@
       <h3 class="center">OUR TOOLS</h3>
       <div class="row-padding center" style="width: 100%; margin-top:64px">
 
-        <div class="quarter zoom" onclick="location.href='{{ url_for('hbclassification') }}';" style="margin-left:10%">
-          <i class="fa fa-wrench margin-bottom jumbo center"></i>
-          <p class="large">Tool 1</p>
-          <p> Coming Soon! </p>
+        <div class="quarter zoom" onclick="location.href='{{ url_for('hbc') }}';" style="margin-left:10%">
+          <i class="fa fa-heart margin-bottom jumbo center"></i>
+          <p class="large">Heartbeat Classification</p>
+          <p> Classifies heartbeats into normal, artifact, extrasystole, and murmur classes.</p>
         </div>
         <div class="quarter zoom" style="margin-left:10%">
           <i class="fa fa-terminal margin-bottom jumbo center"></i>

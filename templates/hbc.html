@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Laire | Heartbeat Classification</title>
+  {{ dropzone.load_css() }}
+  {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
+
+  <style media="screen">
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="uploadarea">
+    {{ dropzone.create(action='upload') }}
+    {{ dropzone.load_js() }}
+    {{ dropzone.config() }}
+  </div>
+</body>
+
+</html>

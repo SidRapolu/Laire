@@ -1,19 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from flask_dropzone import Dropzone
+import os
+UPLOAD_FOLDER = '/uploads'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
 
 app = Flask(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['UPLOADED_PATH'] = os.getcwd() + '/uploads'
+dropzone = Dropzone(app)
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def home():
     return render_template('home.html')
 
-@app.route("/hbclassification", methods=["GET"])
-def hbclassification():
-    return render_template('hbclassification.html')
+@app.route("/hbc")
+def hbc():
+    return render_template('hbc.html')
+
+@app.route("/upload", methods=['POST', 'GET'])
+def upload():
+    if request.method == 'POST':
+        for f in request.files.getlist('file'):
+            f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
+    return render_template('hbc.html')
 
 
 
-
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
