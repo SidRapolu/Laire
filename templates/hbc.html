@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Laire | Heartbeat Classification</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mainstyle.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="https://t6.rbxcdn.com/c12c1ae65824815a2869db34239789da">
+
   {{ dropzone.load_css() }}
   {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
 
@@ -16,12 +21,39 @@
 </head>
 
 <body>
+  <!-- Navbar (sit on top) -->
+  <div class="top">
+    <div class="bar white card" id="myNavbar" height="25px">
+      <a href="#home" class="bar-item button wide"><img src="static/images/logo.png" style="width: auto; height:25px;border:0;"></a>
+      <!-- Right-sided navbar links -->
+      <div class="right hide-small">
+        <a href="#home" class="bar-item button">HOME</a>
+        <a href="#about" class="bar-item button">ABOUT</a>
+        <a href="#tools" class="bar-item button">TOOLS</a>
+        <a href="#team" class="bar-item button">TEAM</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      <a href="javascript:void(0)" class="bar-item button right hide-large hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
 
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="sidebar bar-block black card animate-left hide-medium hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="bar-item button large padding-16">Close ×</a>
+    <a href="#home" class="bar-item button">HOME</a>
+    <a href="#about" class="bar-item button">ABOUT</a>
+    <a href="#tools" class="bar-item button">TOOLS</a>
+    <a href="#tools" class="bar-item button">TEAM</a>
+  </nav>
   <div id="uploadarea">
     {{ dropzone.create(action='upload') }}
     {{ dropzone.load_js() }}
     {{ dropzone.config() }}
   </div>
+
+
 </body>
 
 </html>
