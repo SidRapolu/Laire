@@ -260,6 +260,10 @@ a {
   border-bottom: 1px solid #ddd
 }
 
+.nav{
+    color: #434247;
+}
+
 .striped tbody tr:nth-child(even) {
   background-color: #f1f1f1
 }
