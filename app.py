@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_dropzone import Dropzone
 import os
 UPLOAD_FOLDER = '/uploads'
@@ -24,7 +24,9 @@ def upload():
             f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
     return render_template('hbc.html')
 
-
+@app.route("/github")
+def github():
+    return redirect("https://github.com/pranavaddepalli/Laire", code=302)
 
 if __name__ == '__main__':
     app.run(debug=True)
