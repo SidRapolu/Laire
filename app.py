@@ -6,13 +6,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-<<<<<<< HEAD
-     #return render_template('construction.html')
-      return render_template('home.html')
-=======
      return render_template('construction.html')
     # return render_template('home.html')
->>>>>>> fb23f35ce7c5800a1e9ed589f8cb6d02ea66dc54
 
 @app.route("/github")
 def github():
