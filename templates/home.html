@@ -71,6 +71,13 @@
   }
 
   #webdev {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../static/images/webdev.jpg");
+  }
+  #social {
+    background-position: center;
+    background-size: cover;
     background-image: url("../static/images/webdev.jpg");
   }
 </style>
@@ -116,7 +123,7 @@
     <div class="display-left text-white" style="padding:48px"><span class="xxlarge hide-large hide-medium">Laire</span><br>
       <span class="large" style="position: relative; left: 20px;"></span>
       <p><a href="#about" class="button white padding-large large margin-top opacity hover-opacity-off" style="position:relative;left:370px;top:100px;">Learn more</a>
-        <a href="#about" class="button blue padding-large large margin-top opacity hover-opacity-off" style="position:relative;left:500px;top:100px">Contact Now</a>
+        <a href="#contact" class="button blue padding-large large margin-top opacity hover-opacity-off" style="position:relative;left:500px;top:100px">Contact Now</a>
       </p>
 
     </div>
@@ -124,7 +131,7 @@
   </header>
 
   <!-- ABOUT COMPANY -->
-  <div class="container light-grey" style="padding:128px 16px" id="about">
+  <div class="container white" style="padding:128px 16px" id="about">
     <div class="row-padding">
       <div class="col m6">
         <h3>Web development and digital marketing powered by AI.</h3>
@@ -139,31 +146,33 @@
   </div>
 
   <!-- WEB DEVELOPMENT -->
-  <div class="container light-grey" style="padding:128px 256px" id="webdev">
+  <div class="container" style="padding:128px 150px" id="webdev">
     <div class="row-padding">
-      <div class="col m6">
+      <div class="col s6" style="padding:160px 0px;">
         <h3>WEB DEVELOPMENT</h3>
-        <p>Our mission is to bridge the gap between a startup and a business
-          <br>by improving the digital marketing through advanced web development.
-        </p>
       </div>
-      <div class="col m6">
+      <div class="col s6 offset-s6">
+          <p>
+              <br>
+              <br>
+              <br>
+              <br>Personalized websites with no templates tailored to your preferences.
+              <br>
+              <br>Powered by our AI engine, professional email client, and fully
+              personalized management and support from our team of experienced developers.
+          </p>
       </div>
     </div>
   </div>
   <!-- SOCIAL MEDIA -->
-  <div class="container light-grey" style="padding:128px 256px" id="social">
-    <div class="row-padding">
-      <div class="col m6">
+  <div class="container blue" style="padding:128px 550px;" id="social">
+      <div class="container" style="padding:160px 0px;">
         <h3>SOCIAL MEDIA</h3>
-        <p>Our mission is to bridge the gap between a startup and a business
-          <br>by improving the digital marketing through advanced web development.
-        </p>
       </div>
-      <div class="col m6">
-      </div>
-    </div>
   </div>
+
+  <!-- OUR TEAM -->
+  
 
   <!-- CONTACT -->
   <div class="container light-grey" style="padding:128px 256px" id="contact">
@@ -178,85 +187,6 @@
       </div>
     </div>
   </div>
-
-  <!-- OUR TEAM -->
-  <div id="team" class="section md-padding">
-
-    <div class="container">
-
-      <div class="row">
-
-        <div class="section-header text-center">
-          <h2 class="title">Our Team</h2>
-        </div>
-
-
-        <div class="col-sm-4">
-          <div class="team">
-            <div class="team-img">
-              <img class="img-responsive" src="./team1.webp" alt="">
-              <div class="overlay">
-                <div class="team-social">
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-facebook"></i></a>
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-google-plus"></i></a>
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-twitter"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="team-content">
-              <h3>John Doe</h3>
-              <span>Web Designer</span>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-4">
-          <div class="team">
-            <div class="team-img">
-              <img class="img-responsive" src="./team2.webp" alt="">
-              <div class="overlay">
-                <div class="team-social">
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-facebook"></i></a>
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-google-plus"></i></a>
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-twitter"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="team-content">
-              <h3>John Doe</h3>
-              <span>Web Designer</span>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-4">
-          <div class="team">
-            <div class="team-img">
-              <img class="img-responsive" src="./team3.webp" alt="">
-              <div class="overlay">
-                <div class="team-social">
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-facebook"></i></a>
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-google-plus"></i></a>
-                  <a href="https://colorlib.com/etc/creative-agency/index.html#"><i class="fa fa-twitter"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="team-content">
-              <h3>John Doe</h3>
-              <span>Web Designer</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
 
   <!-- Footer -->
   <footer class="center light-gray padding-64" style="width: 100%">
@@ -301,7 +231,7 @@
   <script>
     //transparent to solid Navbar
     $(window).scroll(function() {
-      if ($(window).scrollTop() >= 750) {
+      if ($(window).scrollTop() >= 700) {
         $('#myNavbar').css('background', 'white');
       } else {
         $('#myNavbar').css('background', 'transparent');
