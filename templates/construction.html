@@ -2,18 +2,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Laire | Under Construction</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mainstyle.css') }}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  
+    <meta charset="UTF-8">
+    <title>Laire | Under Construction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mainstyle.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
 </head>
+<style>
+    body,h2,h3,h4,h5,h6 {
+        font-family: 'Varela', sans-serif;
+        font-size: 4vh;
+        color: #dbdbdb;
+    }
 
-<body> <center>
- <p>  Sorry! <br> Laire is under construction. <br> Check back soon! </p> </center>
+    h1 {
+        font-family: 'Varela', sans-serif;
+        font-size: 12vh;
+        font-weight: bold;
+        color: #454545;
+    }
+    .bgimg-1 {
+      background-position: center;
+      background-size: cover;
+      background-image: url("../static/images/lairebg.png");
+      min-height: 100%;
+    }
+</style>
+
+<body style="height:100vh;" class="bgimg-1">
+    <center>
+        <h1 style="padding-top:13vh;">
+            Sorry!
+        </h1>
+        <p style="padding-top:13vh;padding-left:19vh;">
+            <br> is under construction.
+            <a href="https://www.linkedin.com/company/laire-llc/about/?viewAsMember=true" class="button light-grey padding-large large margin-top opacity hover-opacity-off" style="position:relative;right:15vw;top:23vh;">Linkedin</a>
+        </p>
+        <p style="padding-left:5vh;padding-bottom:20vh;color:#454545;">
+        Check back soon or check out our Linkedin for more information!
+    </p>
+
+    </center>
 
 
 </body>
