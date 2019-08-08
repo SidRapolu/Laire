@@ -3,7 +3,7 @@
 <title>Laire</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="{{ url_for('static',filename='images/tabIcon.png') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
@@ -32,6 +32,8 @@
         height: 67vh;
         padding-top: 10vh;
         transition: transform .2s;
+        border-radius: 2vh;
+        background-color: rgba(255, 255, 255, .70);
         /* Animation */
     }
 
@@ -68,14 +70,14 @@
     h4,
     h5,
     h6 {
-        font-family: 'Varela', sans-serif;
+        font-family: 'Lexend Deca', sans-serif;
     }
 
     h2 {
         border-right: solid 3px rgba(0, 255, 0, .75);
         white-space: nowrap;
         overflow: hidden;
-        font-family: 'Varela', sans-serif;
+        font-family: 'Lexend Deca', sans-serif;
         font-size: 28px;
         color: rgba(255, 255, 255, .70);
         margin: 0 auto;
@@ -142,27 +144,27 @@
         height: 100vh;
         background-position: center;
         background-size: cover;
-        background-color: #C1B0FF;
     }
 
     #webdev {
-        height: 120vh;
+        height: 170vh;
         background-position: center;
         background-size: cover;
-        background-color: #8fffa9;
+        background-color: #403f45;
     }
 
     #social {
-        height: 100vh;
+        height: 110vh;
         background-position: center;
         background-size: cover;
-        background-color: #fff78c;
+        background-color: #403f45;
     }
 
     #team {
-        height: 100vh;
+        height: 110vh;
         background-position: center;
         background-size: cover;
+        background-color: #ebebebeb;
     }
 
     #contact {
@@ -317,7 +319,7 @@
         }
     }
 
-    .button1{
+    .button1 {
         display: inline-block;
         padding: 8px 16px;
         vertical-align: middle;
@@ -327,9 +329,57 @@
         background-color: inherit;
         text-align: center;
         cursor: pointer;
-        border-radius: 5px;
+        border-radius: 50px;
     }
 
+    .arrow {
+        text-align: center;
+        margin: 8% 0;
+    }
+
+    .bounce {
+        -moz-animation: bounce 2s infinite;
+        -webkit-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+
+        40% {
+            transform: translateY(-30px);
+        }
+
+        60% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .webcard {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, .70);
+        width: 25vw;
+        height: 50vh;
+        padding-top: 10vh;
+        border-radius: 2vh;
+
+    }
+    .socialcard {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, .70);
+        width: 40vw;
+        height: 35vh;
+        padding-top: 10vh;
+        border-radius: 2vh;
+
+    }
 </style>
 
 <body>
@@ -377,8 +427,11 @@
                     <a href="#contact" class="button1 blue padding-large large margin-top" style="position:relative;left:59vw;top:45vh">Contact Now</a>
                 </p>
             </center>
+            <div class="arrow bounce" style="position: relative; left: 68vh;top:52vh;">
+                <a class="fa fa-arrow-down fa-2x"></a>
+            </div>
             <section class="wrapper">
-                <h1 style="color:white;padding-left:40vh;"class="sentence">  We
+                <h1 style="color:white;position: relative; left: 82vh;bottom:5vh;" class="sentence"> We
                     <div class="slidingVertical">
                         <span>create.</span>
                         <span>design.</span>
@@ -392,41 +445,92 @@
     <!-- ABOUT COMPANY -->
     <div class="container" style="padding:128px 16px" id="about">
         <div class="row-padding">
-            <div class="col m6">
-                <h3 style="font-weight:bold;">Web development and digital marketing powered by AI.</h3>
-                <p>Laire is a startup focused on helping local businesses grow
-                    <br>by using advanced tools to build websites and manage social media platforms.
+            <div class="">
+                <center>
+                    <h3 class="button1 blue padding-large large margin-top" style="font-size:5vh;font-weight:bold;position: relative;bottom:5vh;">WHAT WE DO</h3>
+                    <p style="position: relative;bottom:5vh;font-size:3vh;">Helping local businesses grow by building websites and managing social media platforms.
+                    </p>
+                </center>
+                <p style="position: relative;left:8vh;top:4vh;font-size:3.1vh;">
+                    WE develop the Website, Powered by AI.<br>
+                    WE take care of the Website Management.<br>
+                    WE provide the Professional Email with YOUR own Domain.<br>
+                    WE setup the Database Mapping.<br>
+                    WE provide the DDOS Protection.<br>
+                    WE manage the Social Media platforms.
                 </p>
             </div>
             <div class="col m6">
-                <img class="image round-large" src="static/images/datascience.gif" alt="datascience">
+                <img style="width:87%;position: relative; left: 110vh;bottom:45vh;" class="image round-large" src="static/images/datascience.gif" alt="datascience">
             </div>
         </div>
     </div>
 
     <!-- WEB DEVELOPMENT -->
     <div class="container" id="webdev">
-        <div class="container vertical-center" style="padding-bottom:5vh;padding-top:15vh;">
+        <div class="container vertical-center">
             <center>
-                <h2 style="font-weight:bold;font-size:16vh;">WEB DEVELOPMENT</h2>
-                <p style="font-size:4vh;">
-                    Personalized websites with no templates tailored to your preferences.
-                    <br>Powered by our AI engine, professional email client, and fully personalized
-                    <br>management and support from our team of experienced developers.
+                <h2 style="font-weight:bold;font-size:16vh;position: relative;bottom:30vh;">WEB DEVELOPMENT</h2>
+                <p style="font-size:3vh;position: relative;bottom:30vh;">
+
                 </p>
+                <div class="column" style="position: relative;bottom:30vh;left:25vh;">
+                    <div class="webcard">
+                        <div class="container">
+                            <h3 style="position: relative;bottom:8vh;">Our AI Engine</h3>
+                            <center> <img src="static/images/aiIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <p style="position: relative;bottom:8vh;padding:3vh;">Your website is powered by our own AI Engine ensuring the most powerful user experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column" style="position: relative;bottom:30vh;left:40vh;">
+                    <div class="webcard">
+                        <div class="container">
+                            <h3 style="position: relative;bottom:8vh;">Professional Email Client</h3>
+                            <center> <img src="static/images/emailIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <p style="position: relative;bottom:8vh;padding:3vh;">We provide an email with the domain of your choice allowing you to reach your users with ease.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column" style="position: relative;top:30vh;right:25vh;">
+                    <div class="webcard">
+                        <div class="container">
+                            <h3 style="position: relative;bottom:8vh;">Fully Personalized</h3>
+                            <center> <img src="static/images/persIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <p style="position: relative;bottom:8vh;padding:3vh;">Each website is created and designed to fit your specific needs and wants.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column" style="position: relative;bottom:22vh;left:25vh;">
+                    <div class="webcard">
+                        <div class="container">
+                            <h3 style="position: relative;bottom:8vh;">Management by Us</h3>
+                            <center> <img src="static/images/manageIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <p style="position: relative;bottom:8vh;padding:3vh;">We provide management and support from our team of experienced developers.</p>
+                        </div>
+                    </div>
+                </div>
             </center>
         </div>
     </div>
     </div>
     <!-- SOCIAL MEDIA -->
     <div class="container" id="social">
-        <div class="container vertical-center" style="padding-bottom:5vh;padding-top:15vh;">
+        <div class="container vertical-center">
             <center>
-                <h3 style="font-weight:bold;font-size:16vh;">SOCIAL MEDIA</h3>
-                <img src="static/images/instaIcon.png" alt="instagram" style="width:20%;">
-                <img src="static/images/linkedinicon.png" alt="linkedin" style="width:20%;">
-                <img src="static/images/twitIcon.png" alt="twitter" style="width:20%;">
-                <img src="static/images/facebookIcon.png" alt="facebook" style="width:20%;">
+                <h2 style="font-weight:bold;font-size:16vh;position: relative;bottom:1vh;">SOCIAL MEDIA</h2>
+                <img src="static/images/instaIcon.png" alt="instagram" style="width:20%;position: relative;bottom:0vh;right:1vh;">
+                <img src="static/images/linkedinicon.png" alt="linkedin" style="width:20%;position: relative;bottom:10vh;right:1vh;">
+                <img src="static/images/twitIcon.png" alt="twitter" style="width:20%;position: relative;bottom:10vh;right:1vh;">
+                <img src="static/images/facebookIcon.png" alt="facebook" style="width:20%;position: relative;bottom:0vh;right:1vh;">
+                <div class="column" style="position: relative;bottom:15vh;left:53.7vh;">
+                    <div class="socialcard">
+                        <div class="container">
+                            <h3 style="position: relative;bottom:8vh;">We Got This</h3>
+                            <p style="position: relative;bottom:10vh;padding:3vh;">Stand back and handle the other responsibilites in your business while we manage your social media platforms creating an easier way to interact with customers with no effort being wasted. </p>
+                        </div>
+                    </div>
+                </div>
             </center>
         </div>
     </div>
@@ -436,39 +540,39 @@
 
     <div id="team" style="padding-top: 10vh">
         <center>
-            <h3 style="font-weight:bold;">
+            <h3 class="button1 blue padding-large large margin-top" style="font-weight:bold;">
                 OUR TEAM
             </h3>
         </center>
         <center>
             <div class="row">
                 <div class="column" style="padding-top: 10vh;">
-                    <div class="teamcard" onclick="location.href='/pranav';">
-                        <center> <img src="static/images/pranavPic.jpg" alt="Pranav" style="width:50%"></center>
+                    <div class="teamcard" style="position:relative;bottom:5vh;" onclick="location.href='/pranav';">
+                        <center> <img src="static/images/pranavPic.jpg" alt="Pranav" style="border-radius: 2vh;width:50%"></center>
                         <div class="container">
-                            <h2>Pranav Addepalli</h2>
-                            <p class="title">CEO & Founder</p>
+                            <h3>Pranav Addepalli</h3>
+                            <p class="title" style="font-size:3vh;">CEO & Founder</p>
                             <p>pranav@laire.org</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="column" style="padding-top: 10vh;">
-                    <div class="teamcard" onclick="location.href='/sid';">
-                        <center> <img src="static/images/sidPic.jpg" alt="Sid" style="width:50%"> </center>
+                    <div class="teamcard" style="position:relative;bottom:5vh;"onclick="location.href='/sid';">
+                        <center> <img src="static/images/sidPic.jpg" alt="Sid" style="border-radius: 2vh;width:50%"> </center>
                         <div class="container">
-                            <h2>Sid Rapolu</h2>
-                            <p class="title">Lead Web Developer</p>
+                            <h3>Sid Rapolu</h3>
+                            <p class="title" style="font-size:3vh;">Lead Web Developer</p>
                             <p>sid@laire.org</p>
                         </div>
                     </div>
                 </div>
                 <div class="column" style="padding-top: 10vh;">
-                    <div class="teamcard" onclick="location.href='/haneef';">
-                        <center><img src="static/images/haneefPic.jpeg" alt="Haneef" style="width:50%;"></center>
+                    <div class="teamcard" style="position:relative;bottom:5vh;" onclick="location.href='/haneef';">
+                        <center><img src="static/images/haneefPic.jpeg" alt="Haneef" style="border-radius: 2vh;width:50%;"></center>
                         <div class="container">
-                            <h2>Haneef Khan</h2>
-                            <p class="title">Back-End Developer</p>
+                            <h3>Haneef Khan</h3>
+                            <p class="title" style="font-size:3vh;">Data Engineer</p>
                             <p>haneef@laire.org</p>
                         </div>
                     </div>
@@ -522,7 +626,7 @@
     <script>
         //transparent to solid Navbar
         $(window).scroll(function() {
-            if ($(window).scrollTop() >= 700) {
+            if ($(window).scrollTop() >= 650) {
                 $('#myNavbar').css('background', 'white');
             } else {
                 $('#myNavbar').css('background', 'transparent');
