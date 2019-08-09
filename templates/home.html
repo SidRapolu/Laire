@@ -83,6 +83,13 @@
         margin: 0 auto;
     }
 
+    h6 {
+        overflow: hidden;
+        font-family: 'Lexend Deca', sans-serif;
+        color: rgba(255, 255, 255, .70);
+        margin: 0 auto;
+    }
+
     /* Animation */
     h2 {
         animation: animated-text 1.5s steps(19, end) 1s 1 normal both,
@@ -148,14 +155,14 @@
     }
 
     #webdev {
-        height: 170vh;
+        height: 230vh;
         background-position: center;
         background-size: cover;
         background-color: #403f45;
     }
 
     #social {
-        height: 140vh;
+        height: 130vh;
         background-position: center;
         background-size: cover;
         background-color: #403f45;
@@ -443,10 +450,10 @@
 
     .titlecard {
         background-color: #d3adff;
-        width: 40vh;
-        height: 9vh;
+        width: 70vh;
+        height: 20vh;
         position: relative;
-        //display:block;
+        display:block;
         margin: 10px 7px;
         padding: 0px 15px;
         font-weight: 700;
@@ -454,7 +461,10 @@
         text-transform: uppercase;
         outline: 0;
         overflow: hidden;
-        z-index: 1;
+    }
+
+    #myNavbar{
+        transition: all .3s ease-in-out;
     }
 </style>
 
@@ -525,16 +535,10 @@
     <div class="container" style="padding:128px 16px" id="about">
         <div class="row-padding">
             <div class="">
-                    <h3 class="titlecard" style="font-size:5vh;font-weight:bold;position: relative;left:10vh;bottom:5vh;">WHAT WE DO</h3>
-                    <p style="position: relative;left:60vh;bottom:15vh;font-size:3vh;">Helping local businesses grow by building websites and managing social media platforms.
                     </p>
-                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Website Development</h3>
-                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Professional Email</h3>
-                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   DDOS Protection</h3>
-                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Database Mapping</h3>
-                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Website/Media Management</h3>
+                <h3 class="titlecard" style="position: relative;left:10vh;top:10vh;font-size:4vh;">[Insert Slogan / Mission statement here]</h3>
                 </center>
-                <img src="static/images/datascience.gif" alt="aboutpic" style="position:relative;left:100vh;bottom:50vh;width:40%">
+                <img src="static/images/turtle.jpg" alt="aboutpic" style="position:relative;left:100vh;bottom:44.8vh;height:100vh;">
             </div>
         </div>
     </div>
@@ -542,20 +546,27 @@
     <div class="container" id="webdev">
         <div class="container vertical-center" style="position:relative;top:45vh;">
             <center>
-                <h2 style="font-weight:bold;font-size:16vh;position: relative;bottom:30vh;">SITE BUILD</h2>
-                <p style="font-size:3vh;position: relative;bottom:30vh;">
-
-                </p>
-                <div class="column" style="position: relative;bottom:30vh;left:25vh;">
-                    <div class="webcard">
+                <h2 style="font-weight:bold;font-size:16vh;position: relative;bottom:30vh;">WHAT WE DO</h2>
+                <h6 style="font-weight:bold;font-size:10vh;position: relative;bottom:30vh;">Web Development</h6>
+                <div class="column" style="position: relative;bottom:25vh;left:56vh;">
+                    <div class="socialcard">
                         <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Our AI Engine</h3>
-                            <center> <img src="static/images/aiIcon.png" alt="AI" style="position: relative;bottom:8vh;width:30%"> </center>
-                            <p style="position: relative;bottom:8vh;padding:3vh;">Your website is powered by our own AI Engine ensuring the most powerful user experience.</p>
+                            <h3 style="position: relative;bottom:8vh;">Personal and Professional</h3>
+                            <p style="position: relative;bottom:12vh;padding:3vh;font-size:3vh;">Websites built with YOU in mind.
+                                No templates<br>Support for business, personal/resume, portfolio/photography, e-commerce websites</p>
                         </div>
                     </div>
                 </div>
-                <div class="column" style="position: relative;bottom:30vh;left:40vh;">
+                <div class="column" style="position: relative;top:30vh;right:45vh;">
+                    <div class="webcard">
+                        <div class="container">
+                            <h3 style="position: relative;bottom:8vh;">Fully Personalized</h3>
+                            <center> <img src="static/images/persIcon.png" alt="Personalized" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <p style="position: relative;bottom:8vh;padding:3vh;">Each website is created and designed to fit your specific needs and wants-- no templates.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column" style="position: relative;top:30vh;right:21vh;">
                     <div class="webcard">
                         <div class="container">
                             <h3 style="position: relative;bottom:8vh;">Professional Email Client</h3>
@@ -564,16 +575,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="column" style="position: relative;top:30vh;right:25.3vh;">
+                <div class="column" style="position: relative;top:40vh;left:20.4vh;">
                     <div class="webcard">
                         <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Fully Personalized</h3>
-                            <center> <img src="static/images/persIcon.png" alt="Personalized" style="position: relative;bottom:8vh;width:30%"> </center>
-                            <p style="position: relative;bottom:8vh;padding:3vh;">Each website is created and designed to fit your specific needs and wants.</p>
+                            <h3 style="position: relative;bottom:8vh;">Advanced SEO</h3>
+                            <center> <img src="static/images/aiIcon.png" alt="AI" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <p style="position: relative;bottom:8vh;padding:3vh;">Get a personalized Search Engine Optimization plan to get found online and guarantee traffic.</p>
                         </div>
                     </div>
                 </div>
-                <div class="column" style="position: relative;bottom:22vh;left:25vh;">
+                <div class="column" style="position: relative;top:40vh;left:44.5vh;">
                     <div class="webcard">
                         <div class="container">
                             <h3 style="position: relative;bottom:8vh;">Security</h3>
@@ -590,17 +601,16 @@
     <div class="container" id="social">
         <div class="container vertical-center">
             <center>
-                <h2 style="font-weight:bold;font-size:16vh;position: relative;bottom:1vh;">SOCIAL MEDIA</h2>
-                <img src="static/images/instaIcon.png" alt="instagram" style="width:20%;position: relative;top:40vh;right:1vh;">
-                <img src="static/images/linkedinicon.png" alt="linkedin" style="width:20%;position: relative;top:50vh;right:1vh;">
-                <img src="static/images/twitIcon.png" alt="twitter" style="width:20%;position: relative;top:50vh;right:1vh;">
-                <img src="static/images/facebookIcon.png" alt="facebook" style="width:20%;position: relative;top:40vh;right:1vh;">
-                <div class="column" style="position: relative;bottom:35vh;left:53.7vh;">
+                <h6 style="font-weight:bold;font-size:10vh;position: relative;top:10vh;">Digital Marketing</h6>
+                <img src="static/images/instaIcon.png" alt="instagram" style="width:20%;position: relative;top:50vh;right:1vh;">
+                <img src="static/images/linkedinicon.png" alt="linkedin" style="width:20%;position: relative;top:60vh;right:1vh;">
+                <img src="static/images/twitIcon.png" alt="twitter" style="width:20%;position: relative;top:60vh;right:1vh;">
+                <img src="static/images/facebookIcon.png" alt="facebook" style="width:20%;position: relative;top:50vh;right:1vh;">
+                <div class="column" style="position: relative;bottom:25vh;left:53.7vh;">
                     <div class="socialcard">
                         <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">We Got This</h3>
-                            <p style="position: relative;bottom:12vh;padding:3vh;">Stand back and handle the other responsibilites in your business while we manage your social media platforms creating an easier way to interact with customers with no
-                                effort being wasted. </p>
+                            <h3 style="position: relative;bottom:8vh;">Building your brand and customer base</h3>
+                            <p style="position: relative;bottom:12vh;padding:3vh;">We utilize the Unique Content Model...We reach multiple platforms including but not limited to...</p>
                         </div>
                     </div>
                 </div>
@@ -613,7 +623,7 @@
 
     <div id="team" style="padding-top: 10vh">
         <center>
-            <h3 class="titlecard" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
+            <h3 class="" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
                 OUR TEAM
             </h3>
         </center>
@@ -624,7 +634,7 @@
                         <center> <img src="static/images/pranavPic.jpg" alt="Pranav" style="border-radius: 2vh;width:50%"></center>
                         <div class="container">
                             <h3>Pranav Addepalli</h3>
-                            <p class="title" style="font-size:3vh;">CEO & Founder</p>
+                            <p class="title" style="font-size:3vh;">CEO, Founder</p>
                             <p>pranav@laire.org</p>
                         </div>
                     </div>
@@ -635,7 +645,7 @@
                         <center> <img src="static/images/sidPic.jpg" alt="Sid" style="border-radius: 2vh;width:50%"> </center>
                         <div class="container">
                             <h3>Sid Rapolu</h3>
-                            <p class="title" style="font-size:3vh;">Lead Web Developer</p>
+                            <p class="title" style="font-size:3vh;">CTO, Lead Web Developer</p>
                             <p>sid@laire.org</p>
                         </div>
                     </div>
@@ -660,9 +670,11 @@
     <div class="container" id="contact">
         <div class="container vertical-center" style="padding-bottom:5vh;padding-top:15vh;">
             <center>
-                <h3 class="titlecard" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
+                <h3 class="" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
                     CONTACT
                 </h3>
+                <a style="position:relative;padding-left:10vh;padding-right:10vh;font-size:3vh;">Extra low pricing - Base prices for personal/resume $15, portfolio/photography $20, business is $45, e-commerce is $45. FOR BASIC ONLY THOUGH 
+Call or email for a quote and we’ll give you one based on what u need</a>
             </center>
         </div>
     </div>
@@ -701,7 +713,7 @@
     <script>
         //transparent to solid Navbar
         $(window).scroll(function() {
-            if ($(window).scrollTop() >= 650) {
+            if ($(window).scrollTop() >= 545) {
                 $('#myNavbar').css('background', 'white');
             } else {
                 $('#myNavbar').css('background', 'transparent');
