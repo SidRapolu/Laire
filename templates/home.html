@@ -169,7 +169,7 @@
     }
 
     #contact {
-        height: 100vh;
+        height: 120vh;
         background-position: center;
         background-size: cover;
         background-color: #ebebeb;
@@ -335,6 +335,52 @@
         border-radius: 50px;
     }
 
+    button {
+        position: relative;
+        //display:block;
+        height: 45px;
+        width: 150px;
+        margin: 10px 7px;
+        padding: 5px 5px;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 2px;
+        color: black;
+        border-radius: 50vh;
+        border: 2px white solid;
+        text-transform: uppercase;
+        outline: 0;
+        overflow: hidden;
+        background-color: #ffffff;
+        z-index: 1;
+        cursor: pointer;
+        transition: 0.08s ease-in;
+        -o-transition: 0.08s ease-in;
+        -ms-transition: 0.08s ease-in;
+        -moz-transition: 0.08s ease-in;
+        -webkit-transition: 0.08s ease-in;
+    }
+
+    .fill:hover {
+        color: whitesmoke;
+    }
+
+    .fill:before {
+        content: "";
+        position: absolute;
+        background: #2196F3;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        z-index: -1;
+        -webkit-transition: top 0.09s ease-in;
+    }
+
+    .fill:hover:before {
+        top: 0;
+    }
+
     .arrow {
         text-align: center;
         margin: 8% 0;
@@ -390,15 +436,26 @@
         width: 30vh;
         height: 30vh;
         padding-top: 10vh;
-
+        border: 2px black solid;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 
     .titlecard {
         background-color: #d3adff;
-        width: 35vh;
-        height: 0.6vh;
+        width: 40vh;
+        height: 9vh;
+        position: relative;
+        //display:block;
+        margin: 10px 7px;
+        padding: 0px 15px;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: uppercase;
+        outline: 0;
+        overflow: hidden;
+        z-index: 1;
     }
-
 </style>
 
 <body>
@@ -442,8 +499,9 @@
         <div class="display-left text-white" style="padding:48px;"><span class="xxlarge hide-large hide-medium"></span><br>
             <span class="large" style="position: relative; left: 20px;"></span>
             <center>
-                <p><a href="#about" class="button1 white padding-large large margin-top" style="position:relative;left:10vw;top:45vh;">Learn more</a>
-                    <a href="#contact" class="button1 blue padding-large large margin-top" style="position:relative;left:60vw;top:45vh">Contact Now</a>
+                <p>
+                    <button href="#about" class="fill" style="position:relative;left:10vw;top:45vh;">Learn More</button>
+                    <button href="#contact" class="fill" style="position:relative;left:60vw;top:45vh">Contact</button>
                 </p>
             </center>
             <div class="arrow bounce" style="position: relative; left: 70vh;top:62vh;">
@@ -467,51 +525,19 @@
     <div class="container" style="padding:128px 16px" id="about">
         <div class="row-padding">
             <div class="">
-                <center>
-                    <h3 class="titlecard" style="font-size:5vh;font-weight:bold;position: relative;bottom:8vh;">WHAT WE DO</h3>
-                    <p style="position: relative;top:0vh;font-size:3vh;">Helping local businesses grow by building websites and managing social media platforms.
+                    <h3 class="titlecard" style="font-size:5vh;font-weight:bold;position: relative;left:10vh;bottom:5vh;">WHAT WE DO</h3>
+                    <p style="position: relative;left:60vh;bottom:15vh;font-size:3vh;">Helping local businesses grow by building websites and managing social media platforms.
                     </p>
+                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Website Development</h3>
+                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Professional Email</h3>
+                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   DDOS Protection</h3>
+                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Database Mapping</h3>
+                <h3 style="position: relative;left:15vh;top:0vh;font-size:3vh;">•   Website/Media Management</h3>
                 </center>
-
-                <div class="column" style="position: relative;top:10vh;left:10vh;">
-                    <div class="aboutcard">
-                        <div class="container">
-                            <center><h3 style="position: relative;bottom:2vh;font-size:3vh;">Website Development</h3></center>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;top:30vh;right:20vh;">
-                    <div class="aboutcard">
-                        <div class="container">
-                            <center><h3 style="position: relative;bottom:2vh;font-size:3vh;">Professional Email</h3></center>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;top:0-vh;right:50vh;">
-                    <div class="aboutcard">
-                        <div class="container">
-                            <center><h3 style="position: relative;font-size:3vh;">DDOS Protection</h3></center>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;bottom:2.5vh;left:120vh;">
-                    <div class="aboutcard">
-                        <div class="container">
-                            <center><h3 style="position: relative;bottom:2vh;font-size:3vh;">Database Mapping</h3></center>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;bottom:22.5vh;left:92vh;">
-                    <div class="aboutcard">
-                        <div class="container">
-                            <center><h3 style="position: relative;bottom:4.5vh;font-size:3vh;">Website and Social Media Management</h3></center>
-                        </div>
-                    </div>
-                </div>
+                <img src="static/images/datascience.gif" alt="aboutpic" style="position:relative;left:100vh;bottom:50vh;width:40%">
             </div>
         </div>
     </div>
-
     <!-- WEB DEVELOPMENT -->
     <div class="container" id="webdev">
         <div class="container vertical-center" style="position:relative;top:45vh;">
@@ -524,7 +550,7 @@
                     <div class="webcard">
                         <div class="container">
                             <h3 style="position: relative;bottom:8vh;">Our AI Engine</h3>
-                            <center> <img src="static/images/aiIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <center> <img src="static/images/aiIcon.png" alt="AI" style="position: relative;bottom:8vh;width:30%"> </center>
                             <p style="position: relative;bottom:8vh;padding:3vh;">Your website is powered by our own AI Engine ensuring the most powerful user experience.</p>
                         </div>
                     </div>
@@ -533,7 +559,7 @@
                     <div class="webcard">
                         <div class="container">
                             <h3 style="position: relative;bottom:8vh;">Professional Email Client</h3>
-                            <center> <img src="static/images/emailIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <center> <img src="static/images/emailIcon.png" alt="Email" style="position: relative;bottom:8vh;width:30%"> </center>
                             <p style="position: relative;bottom:8vh;padding:3vh;">We provide an email with the domain of your choice allowing you to reach your users with ease.</p>
                         </div>
                     </div>
@@ -542,7 +568,7 @@
                     <div class="webcard">
                         <div class="container">
                             <h3 style="position: relative;bottom:8vh;">Fully Personalized</h3>
-                            <center> <img src="static/images/persIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <center> <img src="static/images/persIcon.png" alt="Personalized" style="position: relative;bottom:8vh;width:30%"> </center>
                             <p style="position: relative;bottom:8vh;padding:3vh;">Each website is created and designed to fit your specific needs and wants.</p>
                         </div>
                     </div>
@@ -551,7 +577,7 @@
                     <div class="webcard">
                         <div class="container">
                             <h3 style="position: relative;bottom:8vh;">Security</h3>
-                            <center> <img src="static/images/manageIcon.png" alt="Sid" style="position: relative;bottom:8vh;width:30%"> </center>
+                            <center> <img src="static/images/manageIcon.png" alt="Management" style="position: relative;bottom:8vh;width:30%"> </center>
                             <p style="position: relative;bottom:8vh;padding:3vh;">We take care of the DDOS, database mapping, and management so you don't.</p>
                         </div>
                     </div>
@@ -587,7 +613,7 @@
 
     <div id="team" style="padding-top: 10vh">
         <center>
-            <h3 class="titlecard" style="font-weight:bold;font-size:5vh;">
+            <h3 class="titlecard" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
                 OUR TEAM
             </h3>
         </center>
@@ -616,7 +642,7 @@
                 </div>
                 <div class="column" style="padding-top: 20vh;">
                     <div class="teamcard" style="position:relative;bottom:5vh;" onclick="location.href='/haneef';">
-                        <center><img src="static/images/haneefPic.jpeg" alt="Haneef" style="border-radius: 2vh;width:50%;"></center>
+                        <center><img src="static/images/hanPic.JPEG" alt="Haneef" style="border-radius: 2vh;width:50%;"></center>
                         <div class="container">
                             <h3>Haneef Khan</h3>
                             <p class="title" style="font-size:3vh;">Data Engineer</p>
@@ -634,7 +660,9 @@
     <div class="container" id="contact">
         <div class="container vertical-center" style="padding-bottom:5vh;padding-top:15vh;">
             <center>
-                <h3 style="font-weight:bold;font-size:16vh;">CONTACT</h3>
+                <h3 class="titlecard" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
+                    CONTACT
+                </h3>
             </center>
         </div>
     </div>
