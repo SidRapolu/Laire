@@ -1,754 +1,838 @@
-<!DOCTYPE html>
-<html>
-<title>Laire</title>
-<meta charset="UTF-8">
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="icon" href="{{ url_for('static',filename='images/tabIcon.png') }}">
-<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static',filename='css/mainstyle.css') }}">
-<style>
-    /* Three columns side by side */
-    .column {
-        float: left;
-        width: 33.3%;
-        margin-bottom: 16px;
-        padding: 0 8px;
-    }
 
-    /* Display the columns below each other instead of side by side on small screens */
-    @media screen and (max-width: 650px) {
-        .column {
-            width: 100%;
-            display: block;
-        }
-    }
+<title>Laire</title>
 
-    /* Add some shadows to create a card effect */
-    .teamcard {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        width: 25vw;
-        height: 67vh;
-        padding-top: 10vh;
-        transition: transform .2s;
-        border-radius: 2vh;
-        background-color: rgba(255, 255, 255, .70);
-        /* Animation */
-    }
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
-    .teamcard:hover {
-        transform: scale(1.04);
-    }
+<link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css">
 
-    /* Some left and right padding inside the container */
-    .container {
-        padding: 0 16px;
-    }
+<link type="text/css" rel="stylesheet" href="../static/css/owl.carousel.css">
+<link type="text/css" rel="stylesheet" href="../static/css/owl.theme.default.css">
 
-    /* Clear floats */
-    .container::after,
-    .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+<link type="text/css" rel="stylesheet" href="../static/css/magnific-popup.css">
 
-    .title {
-        color: grey;
-    }
+<link rel="stylesheet" href="../static/css/font-awesome.min.css">
 
-    /* Vertically centers element within div*/
-    .vertical-center {
-        vertical-align: middle;
-    }
+<link type="text/css" rel="stylesheet" href="../static/css/mstyle.css">
 
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Lexend Deca', sans-serif;
-    }
 
-    h2 {
-        border-right: solid 3px rgba(0, 255, 0, .75);
-        white-space: nowrap;
-        overflow: hidden;
-        font-family: 'Lexend Deca', sans-serif;
-        font-size: 28px;
-        color: rgba(255, 255, 255, .70);
-        margin: 0 auto;
-    }
-
-    h6 {
-        overflow: hidden;
-        font-family: 'Lexend Deca', sans-serif;
-        color: rgba(255, 255, 255, .70);
-        margin: 0 auto;
-    }
-
-    /* Animation */
-    h2 {
-        animation: animated-text 1.5s steps(19, end) 1s 1 normal both,
-            animated-cursor 3900ms steps(50, end) normal both;
-    }
-
-    /* text animation */
-
-    @keyframes animated-text {
-        from {
-            width: 0;
-        }
-
-        to {
-            width: 130vh;
-        }
-    }
-
-    /* cursor animations */
-
-    @keyframes animated-cursor {
-        from {
-            border-right-color: rgba(0, 0, 0, .75);
-        }
-
-        to {
-            border-right-color: transparent;
-        }
-    }
-
-    body,
-    html {
-        height: 100%;
-        line-height: 1.8;
-        opacity: 1;
-        transition: 2s opacity;
-        background-color: white;
-    }
-
-    body.fade-out {
-        opacity: 0;
-        transition: none;
-    }
-
-    /* Full height image header */
-
-    .bar .button {
-        padding: 16px;
-    }
-
-    .bgimg-1 {
-        background-position: center;
-        background-size: cover;
-        background-image: url("../static/images/lairebg4.png");
-        height: 100vh;
-    }
-
-    #about {
-        height: 100vh;
-        background-position: center;
-        background-size: cover;
-        background-color: white;
-    }
-
-    #webdev {
-        height: 230vh;
-        background-position: center;
-        background-size: cover;
-        background-color: #403f45;
-    }
-
-    #social {
-        height: 130vh;
-        background-position: center;
-        background-size: cover;
-        background-color: #403f45;
-    }
-
-    #team {
-        height: 110vh;
-        background-position: center;
-        background-size: cover;
-        background-color: #ebebebeb;
-    }
-
-    #contact {
-        height: 120vh;
-        background-position: center;
-        background-size: cover;
-        background-color: #ebebeb;
-    }
-
-    /*Sentence*/
-    .sentence {
-        text-align: left;
-        color: #222;
-        font-size: 30px;
-    }
-
-    /*Wrapper*/
-    .wrapper {
-        margin: 100px auto;
-        position: relative;
-        width: 100%;
-    }
-
-    /*Vertical Sliding*/
-    .slidingVertical {
-        display: inline;
-        text-indent: 8px;
-    }
-
-    .slidingVertical span {
-        animation: topToBottom 7.5s linear infinite 0s;
-        -ms-animation: topToBottom 7.5s linear infinite 0s;
-        -webkit-animation: topToBottom 7.5s linear infinite 0s;
-        color: #dedede;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-    }
-
-    .slidingVertical span:nth-child(2) {
-        animation-delay: 2.5s;
-        -ms-animation-delay: 2.5s;
-        -webkit-animation-delay: 2.5s;
-    }
-
-    .slidingVertical span:nth-child(3) {
-        animation-delay: 5s;
-        -ms-animation-delay: 5s;
-        -webkit-animation-delay: 5s;
-    }
-
-
-    /*topToBottom Animation*/
-    @-moz-keyframes topToBottom {
-        0% {
-            opacity: 0;
-        }
-
-        5% {
-            opacity: 0;
-            -moz-transform: translateY(-50px);
-        }
-
-        10% {
-            opacity: 1;
-            -moz-transform: translateY(0px);
-        }
-
-        25% {
-            opacity: 1;
-            -moz-transform: translateY(0px);
-        }
-
-        30% {
-            opacity: 0;
-            -moz-transform: translateY(50px);
-        }
-
-        80% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @-webkit-keyframes topToBottom {
-        0% {
-            opacity: 0;
-        }
-
-        5% {
-            opacity: 0;
-            -webkit-transform: translateY(-50px);
-        }
-
-        10% {
-            opacity: 1;
-            -webkit-transform: translateY(0px);
-        }
-
-        25% {
-            opacity: 1;
-            -webkit-transform: translateY(0px);
-        }
-
-        30% {
-            opacity: 0;
-            -webkit-transform: translateY(50px);
-        }
-
-        80% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @-ms-keyframes topToBottom {
-        0% {
-            opacity: 0;
-        }
-
-        5% {
-            opacity: 0;
-            -ms-transform: translateY(-50px);
-        }
-
-        10% {
-            opacity: 1;
-            -ms-transform: translateY(0px);
-        }
-
-        25% {
-            opacity: 1;
-            -ms-transform: translateY(0px);
-        }
-
-        30% {
-            opacity: 0;
-            -ms-transform: translateY(50px);
-        }
-
-        80% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 0;
-        }
-    }
-
-    .button1 {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        display: inline-block;
-        padding: 8px 16px;
-        vertical-align: middle;
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-        background-color: inherit;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 50px;
-    }
-
-    button {
-        position: relative;
-        //display:block;
-        height: 45px;
-        width: 150px;
-        margin: 10px 7px;
-        padding: 5px 5px;
-        font-weight: 700;
-        font-size: 15px;
-        letter-spacing: 2px;
-        color: black;
-        border-radius: 50vh;
-        border: 2px white solid;
-        text-transform: uppercase;
-        outline: 0;
-        overflow: hidden;
-        background-color: #ffffff;
-        z-index: 1;
-        cursor: pointer;
-        transition: 0.08s ease-in;
-        -o-transition: 0.08s ease-in;
-        -ms-transition: 0.08s ease-in;
-        -moz-transition: 0.08s ease-in;
-        -webkit-transition: 0.08s ease-in;
-    }
-
-    .fill:hover {
-        color: whitesmoke;
-    }
-
-    .fill:before {
-        content: "";
-        position: absolute;
-        background: #2196F3;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        top: 100%;
-        z-index: -1;
-        -webkit-transition: top 0.09s ease-in;
-    }
-
-    .fill:hover:before {
-        top: 0;
-    }
-
-    .arrow {
-        text-align: center;
-        margin: 8% 0;
-    }
-
-    .bounce {
-        -moz-animation: bounce 2s infinite;
-        -webkit-animation: bounce 2s infinite;
-        animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-            transform: translateY(0);
-        }
-
-        40% {
-            transform: translateY(-30px);
-        }
-
-        60% {
-            transform: translateY(-15px);
-        }
-    }
-
-    .webcard {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        background-color: rgba(255, 255, 255, .70);
-        width: 25vw;
-        height: 50vh;
-        padding-top: 10vh;
-        border-radius: 2vh;
-
-    }
-
-    .socialcard {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        background-color: rgba(255, 255, 255, .70);
-        width: 40vw;
-        height: 35vh;
-        padding-top: 10vh;
-        border-radius: 2vh;
-
-    }
-
-    .aboutcard {
-        background-color: #7affd5;
-        width: 30vh;
-        height: 30vh;
-        padding-top: 10vh;
-        border: 2px black solid;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .titlecard {
-        background-color: #d3adff;
-        width: 70vh;
-        height: 20vh;
-        position: relative;
-        display:block;
-        margin: 10px 7px;
-        padding: 0px 15px;
-        font-weight: 700;
-        font-size: 15px;
-        text-transform: uppercase;
-        outline: 0;
-        overflow: hidden;
-    }
-
-    #myNavbar{
-        transition: all .3s ease-in-out;
-    }
-</style>
-
+<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
 <body>
-    <script>
-        document.body.className += ' fade-out';
-    </script>
 
-    <!-- Navbar (sit on top) -->
-    <div class="top">
-        <div class="bar card" id="myNavbar" height="25px">
-            <a href="#home" class="bar-item button wide"><img src="static/images/logo.png" style="width: auto; height:25px;border:0;"></a>
-            <!-- right navbar links -->
-            <div class="right hide-small">
-                <a href="#home" class="bar-item button">HOME</a>
-                <a href="#about" class="bar-item button">ABOUT</a>
-                <a href="#webdev" class="bar-item button">WEB DEVELOPMENT</a>
-                <a href="#social" class="bar-item button">SOCIAL MEDIA</a>
-                <a href="#team" class="bar-item button">TEAM</a>
-                <a href="#contact" class="bar-item button">CONTACT</a>
-            </div>
-            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-            <a href="javascript:void(0)" class="bar-item button right hide-large hide-medium" onclick="w3_open()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-    </div>
+<header id="home">
 
-    <!-- Sidebar on small screens when clicking the menu icon -->
-    <nav class="sidebar bar-block black card animate-left hide-medium hide-large" style="display:none" id="mySidebar">
-        <a href="javascript:void(0)" onclick="w3_close()" class="bar-item button large padding-16">Close ×</a>
-        <a href="#home" class="bar-item button">HOME</a>
-        <a href="#about" class="bar-item button">ABOUT</a>
-        <a href="#bdev" class="bar-item button">WEB DEVELOPMENT</a>
-        <a href="#social" class="bar-item button">SOCIAL MEDIA</a>
-        <a href="#team" class="bar-item button">TEAM</a>
-        <a href="#contact" class="bar-item button">CONTACT</a>
-    </nav>
-
-    <!-- Header with full-height image -->
-    <header class="bgimg-1 display-container" id="home" height="500px">
-        <div class="display-left text-white" style="padding:48px;"><span class="xxlarge hide-large hide-medium"></span><br>
-            <span class="large" style="position: relative; left: 20px;"></span>
-            <center>
-                <p>
-                    <button href="#about" class="fill" style="position:relative;left:10vw;top:45vh;">Learn More</button>
-                    <button href="#contact" class="fill" style="position:relative;left:60vw;top:45vh">Contact</button>
-                </p>
-            </center>
-            <div class="arrow bounce" style="position: relative; left: 70vh;top:62vh;">
-                <a class="fa fa-arrow-down fa-2x"></a>
-            </div>
-            <section class="wrapper">
-                <h1 style="color:white;position: relative; left: 85vh;top:5vh;" class="sentence"> We
-                    <div class="slidingVertical">
-                        <span>design.</span>
-                        <span>develop.</span>
-                        <span>manage.</span>
-                    </div>
-                </h1>
-                <h1 style="color:white;position: relative; left: 67vh;top:5vh;" class="sentence">You </h1>
-                <h1 style="color:#dedede;position: relative; left: 77vh;bottom:5.38vh;" class="sentence">get what you came for.</h1>
-            </section>
-        </div>
-    </header>
-
-    <!-- ABOUT COMPANY -->
-    <div class="container" style="padding:128px 16px" id="about">
-        <div class="row-padding">
-            <div class="">
-                    </p>
-                <h3 class="titlecard" style="position: relative;left:10vh;top:10vh;font-size:4vh;">[Insert Slogan / Mission statement here]</h3>
-                </center>
-                <img src="static/images/turtle.jpg" alt="aboutpic" style="position:relative;left:100vh;bottom:44.8vh;height:100vh;">
-            </div>
-        </div>
-    </div>
-    <!-- WEB DEVELOPMENT -->
-    <div class="container" id="webdev">
-        <div class="container vertical-center" style="position:relative;top:45vh;">
-            <center>
-                <h2 style="font-weight:bold;font-size:16vh;position: relative;bottom:30vh;">WHAT WE DO</h2>
-                <h6 style="font-weight:bold;font-size:10vh;position: relative;bottom:30vh;">Web Development</h6>
-                <div class="column" style="position: relative;bottom:25vh;left:56vh;">
-                    <div class="socialcard">
-                        <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Personal and Professional</h3>
-                            <p style="position: relative;bottom:12vh;padding:3vh;font-size:3vh;">Websites built with YOU in mind.
-                                No templates<br>Support for business, personal/resume, portfolio/photography, e-commerce websites</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;top:30vh;right:45vh;">
-                    <div class="webcard">
-                        <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Fully Personalized</h3>
-                            <center> <img src="static/images/persIcon.png" alt="Personalized" style="position: relative;bottom:8vh;width:30%"> </center>
-                            <p style="position: relative;bottom:8vh;padding:3vh;">Each website is created and designed to fit your specific needs and wants-- no templates.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;top:30vh;right:21vh;">
-                    <div class="webcard">
-                        <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Professional Email Client</h3>
-                            <center> <img src="static/images/emailIcon.png" alt="Email" style="position: relative;bottom:8vh;width:30%"> </center>
-                            <p style="position: relative;bottom:8vh;padding:3vh;">We provide an email with the domain of your choice allowing you to reach your users with ease.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;top:40vh;left:20.4vh;">
-                    <div class="webcard">
-                        <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Advanced SEO</h3>
-                            <center> <img src="static/images/aiIcon.png" alt="AI" style="position: relative;bottom:8vh;width:30%"> </center>
-                            <p style="position: relative;bottom:8vh;padding:3vh;">Get a personalized Search Engine Optimization plan to get found online and guarantee traffic.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="position: relative;top:40vh;left:44.5vh;">
-                    <div class="webcard">
-                        <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Security</h3>
-                            <center> <img src="static/images/manageIcon.png" alt="Management" style="position: relative;bottom:8vh;width:30%"> </center>
-                            <p style="position: relative;bottom:8vh;padding:3vh;">We take care of the DDOS, database mapping, and management so you don't.</p>
-                        </div>
-                    </div>
-                </div>
-            </center>
-        </div>
-    </div>
-    </div>
-    <!-- SOCIAL MEDIA -->
-    <div class="container" id="social">
-        <div class="container vertical-center">
-            <center>
-                <h6 style="font-weight:bold;font-size:10vh;position: relative;top:10vh;">Digital Marketing</h6>
-                <img src="static/images/instaIcon.png" alt="instagram" style="width:20%;position: relative;top:50vh;right:1vh;">
-                <img src="static/images/linkedinicon.png" alt="linkedin" style="width:20%;position: relative;top:60vh;right:1vh;">
-                <img src="static/images/twitIcon.png" alt="twitter" style="width:20%;position: relative;top:60vh;right:1vh;">
-                <img src="static/images/facebookIcon.png" alt="facebook" style="width:20%;position: relative;top:50vh;right:1vh;">
-                <div class="column" style="position: relative;bottom:25vh;left:53.7vh;">
-                    <div class="socialcard">
-                        <div class="container">
-                            <h3 style="position: relative;bottom:8vh;">Building your brand and customer base</h3>
-                            <p style="position: relative;bottom:12vh;padding:3vh;">We utilize the Unique Content Model...We reach multiple platforms including but not limited to...</p>
-                        </div>
-                    </div>
-                </div>
-            </center>
-        </div>
-    </div>
-
-    <!-- OUR TEAM -->
+<div class="bg-img" style="background-image: url('./img/background1.jpg');">
+<div class="overlay"></div>
+</div>
 
 
-    <div id="team" style="padding-top: 10vh">
-        <center>
-            <h3 class="" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
-                OUR TEAM
-            </h3>
-        </center>
-        <center>
-            <div class="row">
-                <div class="column" style="padding-top: 20vh;">
-                    <div class="teamcard" style="position:relative;bottom:5vh;" onclick="location.href='/pranav';">
-                        <center> <img src="static/images/pranavPic.jpg" alt="Pranav" style="border-radius: 2vh;width:50%"></center>
-                        <div class="container">
-                            <h3>Pranav Addepalli</h3>
-                            <p class="title" style="font-size:3vh;">CEO, Founder</p>
-                            <p>pranav@laire.org</p>
-                        </div>
-                    </div>
-                </div>
+<nav id="nav" class="navbar nav-transparent">
+<div class="container">
+<div class="navbar-header">
 
-                <div class="column" style="padding-top: 20vh;">
-                    <div class="teamcard" style="position:relative;bottom:5vh;" onclick="location.href='/sid';">
-                        <center> <img src="static/images/sidPic.jpg" alt="Sid" style="border-radius: 2vh;width:50%"> </center>
-                        <div class="container">
-                            <h3>Sid Rapolu</h3>
-                            <p class="title" style="font-size:3vh;">CTO, Lead Web Developer</p>
-                            <p>sid@laire.org</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="padding-top: 20vh;">
-                    <div class="teamcard" style="position:relative;bottom:5vh;" onclick="location.href='/haneef';">
-                        <center><img src="static/images/hanPic.JPEG" alt="Haneef" style="border-radius: 2vh;width:50%;"></center>
-                        <div class="container">
-                            <h3>Haneef Khan</h3>
-                            <p class="title" style="font-size:3vh;">Data Engineer</p>
-                            <p>haneef@laire.org</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <center>
-    </div>
-    </div>
+<div class="navbar-brand">
+<a href="index.html">
+<img class="logo" src="img/logo.png" alt="logo">
+<img class="logo-alt" src="img/logo-alt.png" alt="logo">
+</a>
+</div>
 
 
-    <!-- CONTACT -->
-    <div class="container" id="contact">
-        <div class="container vertical-center" style="padding-bottom:5vh;padding-top:15vh;">
-            <center>
-                <h3 class="" style="font-weight:bold;font-size:5vh;position:relative;right:70vh;">
-                    CONTACT
-                </h3>
-                <a style="position:relative;padding-left:10vh;padding-right:10vh;font-size:3vh;">Extra low pricing - Base prices for personal/resume $15, portfolio/photography $20, business is $45, e-commerce is $45. FOR BASIC ONLY THOUGH 
-Call or email for a quote and we’ll give you one based on what u need</a>
-            </center>
-        </div>
-    </div>
+<div class="nav-collapse">
+<span></span>
+</div>
 
-    <!-- Footer -->
-    <footer class="center light-gray padding-64" style="width: 100%">
-        <center>
-            <a href="#home" class="button light-grey"><i class="fa fa-arrow-up margin-right"></i>Back to top</a>
-            <div class="xlarge section">
-            </div>
-        </center>
-    </footer>
+</div>
+
+<ul class="main-nav nav navbar-nav navbar-right">
+<li class="active"><a href="#home">Home</a></li>
+<li class=""><a href="#about">About</a></li>
+<li class=""><a href="#portfolio">Portfolio</a></li>
+<li class=""><a href="#service">Services</a></li>
+<li class=""><a href="#pricing">Prices</a></li>
+<li class=""><a href="#team">Team</a></li>
+<li class="has-dropdown"><a href="#blog">Blog</a>
+<ul class="dropdown">
+<li><a href="blog-single.html">blog post</a></li>
+</ul>
+</li>
+<li class=""><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+
+<div class="home-wrapper">
+<div class="container">
+<div class="row">
+
+<div class="col-md-10 col-md-offset-1">
+<div class="home-content">
+<h1 class="white-text">We Are Creative Agency</h1>
+<p class="white-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
+</p>
+<button class="white-btn">Get Started!</button>
+<button class="main-btn">Learn more</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</header>
+
+
+<div id="about" class="section md-padding">
+
+<div class="container">
+
+<div class="row">
+
+<div class="section-header text-center">
+<h2 class="title">Welcome to Website</h2>
+</div>
+
+
+<div class="col-md-4">
+<div class="about">
+<i class="fa fa-cogs"></i>
+<h3>Fully Customizible</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+<a href="#">Read more</a>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="about">
+<i class="fa fa-magic"></i>
+<h3>Awesome Features</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+<a href="#">Read more</a>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="about">
+<i class="fa fa-mobile"></i>
+<h3>Fully Responsive</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+<a href="#">Read more</a>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="portfolio" class="section md-padding bg-grey">
+
+<div class="container">
+
+<div class="row">
+
+<div class="section-header text-center">
+<h2 class="title">Featured Works</h2>
+</div>
+
+
+<div class="col-md-4 col-xs-6 work">
+<img class="img-responsive" src="./img/work1.jpg" alt="">
+<div class="overlay"></div>
+<div class="work-content">
+<span>Category</span>
+<h3>Lorem ipsum dolor</h3>
+<div class="work-link">
+<a href="#"><i class="fa fa-external-link"></i></a>
+<a class="lightbox" href="./img/work1.jpg"><i class="fa fa-search"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4 col-xs-6 work">
+<img class="img-responsive" src="./img/work2.jpg" alt="">
+<div class="overlay"></div>
+<div class="work-content">
+<span>Category</span>
+<h3>Lorem ipsum dolor</h3>
+<div class="work-link">
+<a href="#"><i class="fa fa-external-link"></i></a>
+<a class="lightbox" href="./img/work2.jpg"><i class="fa fa-search"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4 col-xs-6 work">
+<img class="img-responsive" src="./img/work3.jpg" alt="">
+<div class="overlay"></div>
+<div class="work-content">
+<span>Category</span>
+<h3>Lorem ipsum dolor</h3>
+<div class="work-link">
+<a href="#"><i class="fa fa-external-link"></i></a>
+<a class="lightbox" href="./img/work3.jpg"><i class="fa fa-search"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4 col-xs-6 work">
+<img class="img-responsive" src="./img/work4.jpg" alt="">
+<div class="overlay"></div>
+<div class="work-content">
+<span>Category</span>
+<h3>Lorem ipsum dolor</h3>
+<div class="work-link">
+<a href="#"><i class="fa fa-external-link"></i></a>
+<a class="lightbox" href="./img/work4.jpg"><i class="fa fa-search"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4 col-xs-6 work">
+<img class="img-responsive" src="./img/work5.jpg" alt="">
+<div class="overlay"></div>
+<div class="work-content">
+<span>Category</span>
+<h3>Lorem ipsum dolor</h3>
+<div class="work-link">
+<a href="#"><i class="fa fa-external-link"></i></a>
+<a class="lightbox" href="./img/work5.jpg"><i class="fa fa-search"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4 col-xs-6 work">
+<img class="img-responsive" src="./img/work6.jpg" alt="">
+<div class="overlay"></div>
+<div class="work-content">
+<span>Category</span>
+<h3>Lorem ipsum dolor</h3>
+<div class="work-link">
+<a href="#"><i class="fa fa-external-link"></i></a>
+<a class="lightbox" href="./img/work6.jpg"><i class="fa fa-search"></i></a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="service" class="section md-padding">
+
+<div class="container">
+
+<div class="row">
+
+<div class="section-header text-center">
+<h2 class="title">What we offer</h2>
+</div>
+
+
+<div class="col-md-4 col-sm-6">
+<div class="service">
+<i class="fa fa-diamond"></i>
+<h3>App Development</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+</div>
+</div>
+
+
+<div class="col-md-4 col-sm-6">
+<div class="service">
+<i class="fa fa-rocket"></i>
+<h3>Graphic Design</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+</div>
+</div>
+
+
+<div class="col-md-4 col-sm-6">
+<div class="service">
+<i class="fa fa-cogs"></i>
+<h3>Creative Idea</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+</div>
+</div>
+
+
+<div class="col-md-4 col-sm-6">
+<div class="service">
+<i class="fa fa-diamond"></i>
+<h3>Marketing</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+</div>
+</div>
+
+
+<div class="col-md-4 col-sm-6">
+<div class="service">
+<i class="fa fa-pencil"></i>
+<h3>Awesome Support</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+</div>
+</div>
+
+
+<div class="col-md-4 col-sm-6">
+<div class="service">
+<i class="fa fa-flask"></i>
+<h3>Brand Design</h3>
+<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="features" class="section md-padding bg-grey">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-6">
+<div class="section-header">
+<h2 class="title">Why Choose Us</h2>
+</div>
+<p>Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris. Ultrices sagittis orci a scelerisque purus.</p>
+<div class="feature">
+<i class="fa fa-check"></i>
+<p>Quis varius quam quisque id diam vel quam elementum.</p>
+</div>
+<div class="feature">
+<i class="fa fa-check"></i>
+<p>Mauris augue neque gravida in fermentum.</p>
+</div>
+<div class="feature">
+<i class="fa fa-check"></i>
+<p>Orci phasellus egestas tellus rutrum.</p>
+</div>
+<div class="feature">
+<i class="fa fa-check"></i>
+<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium.</p>
+</div>
+</div>
+
+
+<div class="col-md-6">
+<div id="about-slider" class="owl-carousel owl-theme owl-loaded owl-drag">
 
 
 
 
-    <script>
-        // Toggle between showing and hiding the sidebar when clicking the menu icon
-        var mySidebar = document.getElementById("mySidebar");
+<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1470px, 0px, 0px); transition: all 0s ease 0s; width: 5880px;"><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about1.jpg" alt=""></div><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about2.jpg" alt=""></div><div class="owl-item active" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about1.jpg" alt=""></div><div class="owl-item" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about2.jpg" alt=""></div><div class="owl-item" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about1.jpg" alt=""></div><div class="owl-item" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about2.jpg" alt=""></div><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about1.jpg" alt=""></div><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><img class="img-responsive" src="./img/about2.jpg" alt=""></div></div></div><div class="owl-nav"><div class="owl-prev"><i class="fa fa-angle-left"></i></div><div class="owl-next"><i class="fa fa-angle-right"></i></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+</div>
 
-        function w3_open() {
-            if (mySidebar.style.display === 'block') {
-                mySidebar.style.display = 'none';
-            } else {
-                mySidebar.style.display = 'block';
-            }
-        }
+</div>
 
-        // Close the sidebar with the close button
-        function w3_close() {
-            mySidebar.style.display = "none";
-        }
-    </script>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        //transparent to solid Navbar
-        $(window).scroll(function() {
-            if ($(window).scrollTop() >= 545) {
-                $('#myNavbar').css('background', 'white');
-            } else {
-                $('#myNavbar').css('background', 'transparent');
-            }
-        });
+</div>
 
-        $(function() {
-            $('body').removeClass('fade-out');
-        });
-        $(document).ready(function() {
-            // Add smooth scrolling to all links
-            $("a").on('click', function(event) {
 
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
+<div id="numbers" class="section sm-padding">
 
-                    // Store hash
-                    var hash = this.hash;
+<div class="bg-img" style="background-image: url('./img/background2.jpg');">
+<div class="overlay"></div>
+</div>
 
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function() {
 
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                } // End if
-            });
-        });
-    </script>
+<div class="container">
 
-</body>
+<div class="row">
 
-</html>
+<div class="col-sm-3 col-xs-6">
+<div class="number">
+<i class="fa fa-users"></i>
+<h3 class="white-text"><span class="counter">451</span></h3>
+<span class="white-text">Happy clients</span>
+</div>
+</div>
+
+
+<div class="col-sm-3 col-xs-6">
+<div class="number">
+<i class="fa fa-trophy"></i>
+<h3 class="white-text"><span class="counter">12</span></h3>
+<span class="white-text">Awards won</span>
+</div>
+</div>
+
+
+<div class="col-sm-3 col-xs-6">
+<div class="number">
+<i class="fa fa-coffee"></i>
+<h3 class="white-text"><span class="counter">154</span>K</h3>
+<span class="white-text">Cups of Coffee</span>
+</div>
+</div>
+
+
+<div class="col-sm-3 col-xs-6">
+<div class="number">
+<i class="fa fa-file"></i>
+<h3 class="white-text"><span class="counter">45</span></h3>
+<span class="white-text">Projects completed</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="pricing" class="section md-padding">
+
+<div class="container">
+
+<div class="row">
+
+<div class="section-header text-center">
+<h2 class="title">Pricing Table</h2>
+</div>
+
+
+<div class="col-sm-4">
+<div class="pricing">
+<div class="price-head">
+<span class="price-title">Basic plan</span>
+<div class="price">
+<h3>$9<span class="duration">/ month</span></h3>
+</div>
+</div>
+<ul class="price-content">
+<li>
+<p>1GB Disk Space</p>
+</li>
+<li>
+<p>100 Email Account</p>
+</li>
+<li>
+<p>24/24 Support</p>
+</li>
+</ul>
+<div class="price-btn">
+<button class="outline-btn">Purchase now</button>
+</div>
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="pricing">
+<div class="price-head">
+<span class="price-title">Silver plan</span>
+<div class="price">
+<h3>$19<span class="duration">/ month</span></h3>
+</div>
+</div>
+<ul class="price-content">
+<li>
+<p>1GB Disk Space</p>
+</li>
+<li>
+<p>100 Email Account</p>
+</li>
+<li>
+<p>24/24 Support</p>
+</li>
+</ul>
+<div class="price-btn">
+<button class="outline-btn">Purchase now</button>
+</div>
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="pricing">
+<div class="price-head">
+<span class="price-title">Gold plan</span>
+<div class="price">
+<h3>$39<span class="duration">/ month</span></h3>
+</div>
+</div>
+<ul class="price-content">
+<li>
+<p>1GB Disk Space</p>
+</li>
+<li>
+<p>100 Email Account</p>
+</li>
+<li>
+<p>24/24 Support</p>
+</li>
+</ul>
+<div class="price-btn">
+<button class="outline-btn">Purchase now</button>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="testimonial" class="section md-padding">
+
+<div class="bg-img" style="background-image: url('./img/background3.jpg');">
+<div class="overlay"></div>
+</div>
+
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-10 col-md-offset-1">
+<div id="testimonial-slider" class="owl-carousel owl-theme owl-loaded owl-drag">
+
+
+
+
+
+
+<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1470px, 0px, 0px); transition: all 0s ease 0s; width: 4410px;"><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><div class="testimonial">
+<div class="testimonial-meta">
+<img src="./img/perso1.jpg" alt="">
+<h3 class="white-text">John Doe</h3>
+<span>Web Designer</span>
+</div>
+<p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+</div></div><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><div class="testimonial">
+<div class="testimonial-meta">
+<img src="./img/perso2.jpg" alt="">
+<h3 class="white-text">John Doe</h3>
+<span>Web Designer</span>
+</div>
+<p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+</div></div><div class="owl-item active" style="width: 720px; margin-right: 15px;"><div class="testimonial">
+<div class="testimonial-meta">
+<img src="./img/perso1.jpg" alt="">
+<h3 class="white-text">John Doe</h3>
+<span>Web Designer</span>
+</div>
+<p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+</div></div><div class="owl-item" style="width: 720px; margin-right: 15px;"><div class="testimonial">
+<div class="testimonial-meta">
+<img src="./img/perso2.jpg" alt="">
+<h3 class="white-text">John Doe</h3>
+<span>Web Designer</span>
+</div>
+<p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+</div></div><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><div class="testimonial">
+<div class="testimonial-meta">
+<img src="./img/perso1.jpg" alt="">
+<h3 class="white-text">John Doe</h3>
+<span>Web Designer</span>
+</div>
+<p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+</div></div><div class="owl-item cloned" style="width: 720px; margin-right: 15px;"><div class="testimonial">
+<div class="testimonial-meta">
+<img src="./img/perso2.jpg" alt="">
+<h3 class="white-text">John Doe</h3>
+<span>Web Designer</span>
+</div>
+<p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="team" class="section md-padding">
+
+<div class="container">
+
+<div class="row">
+
+<div class="section-header text-center">
+<h2 class="title">Our Team</h2>
+</div>
+
+
+<div class="col-sm-4">
+<div class="team">
+<div class="team-img">
+<img class="img-responsive" src="./img/team1.jpg" alt="">
+<div class="overlay">
+<div class="team-social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+</div>
+</div>
+</div>
+<div class="team-content">
+<h3>John Doe</h3>
+<span>Web Designer</span>
+</div>
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="team">
+<div class="team-img">
+<img class="img-responsive" src="./img/team2.jpg" alt="">
+<div class="overlay">
+<div class="team-social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+</div>
+</div>
+</div>
+<div class="team-content">
+<h3>John Doe</h3>
+<span>Web Designer</span>
+</div>
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="team">
+<div class="team-img">
+<img class="img-responsive" src="./img/team3.jpg" alt="">
+<div class="overlay">
+<div class="team-social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+</div>
+</div>
+</div>
+<div class="team-content">
+<h3>John Doe</h3>
+<span>Web Designer</span>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="blog" class="section md-padding bg-grey">
+
+<div class="container">
+
+<div class="row">
+
+<div class="section-header text-center">
+<h2 class="title">Recents news</h2>
+</div>
+
+
+<div class="col-md-4">
+<div class="blog">
+<div class="blog-img">
+<img class="img-responsive" src="./img/blog1.jpg" alt="">
+</div>
+<div class="blog-content">
+<ul class="blog-meta">
+<li><i class="fa fa-user"></i>John doe</li>
+<li><i class="fa fa-clock-o"></i>18 Oct</li>
+<li><i class="fa fa-comments"></i>57</li>
+</ul>
+<h3>Molestie at elementum eu facilisis sed odio</h3>
+<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
+<a href="blog-single.html">Read more</a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="blog">
+<div class="blog-img">
+<img class="img-responsive" src="./img/blog2.jpg" alt="">
+</div>
+<div class="blog-content">
+<ul class="blog-meta">
+<li><i class="fa fa-user"></i>John doe</li>
+<li><i class="fa fa-clock-o"></i>18 Oct</li>
+<li><i class="fa fa-comments"></i>57</li>
+</ul>
+<h3>Molestie at elementum eu facilisis sed odio</h3>
+<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
+<a href="blog-single.html">Read more</a>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="blog">
+<div class="blog-img">
+<img class="img-responsive" src="./img/blog3.jpg" alt="">
+</div>
+<div class="blog-content">
+<ul class="blog-meta">
+<li><i class="fa fa-user"></i>John doe</li>
+<li><i class="fa fa-clock-o"></i>18 Oct</li>
+<li><i class="fa fa-comments"></i>57</li>
+</ul>
+<h3>Molestie at elementum eu facilisis sed odio</h3>
+<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
+<a href="blog-single.html">Read more</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="contact" class="section md-padding">
+
+<div class="container">
+
+<div class="row">
+
+<div class="section-header text-center">
+<h2 class="title">Get in touch</h2>
+</div>
+
+
+<div class="col-sm-4">
+<div class="contact">
+<i class="fa fa-phone"></i>
+<h3>Phone</h3>
+<p>512-421-3940</p>
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="contact">
+<i class="fa fa-envelope"></i>
+<h3>Email</h3>
+<p>email@support.com</p>
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="contact">
+<i class="fa fa-map-marker"></i>
+<h3>Address</h3>
+<p>1739 Bubby Drive</p>
+</div>
+</div>
+
+
+<div class="col-md-8 col-md-offset-2">
+<form class="contact-form">
+<input type="text" class="input" placeholder="Name">
+<input type="email" class="input" placeholder="Email">
+<input type="text" class="input" placeholder="Subject">
+<textarea class="input" placeholder="Message"></textarea>
+<button class="main-btn">Send message</button>
+</form>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer id="footer" class="sm-padding bg-dark">
+
+<div class="container">
+
+<div class="row">
+<div class="col-md-12">
+
+<div class="footer-logo">
+<a href="index.html"><img src="img/logo-alt.png" alt="logo"></a>
+</div>
+
+
+<ul class="footer-follow">
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</ul>
+
+
+<div class="footer-copyright">
+<p>Copyright © 2017. All Rights Reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</footer>
+
+
+<div id="back-to-top" style="display: none;"></div>
+
+
+<div id="preloader" style="display: none;">
+<div class="preloader">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+
+</body></html>
