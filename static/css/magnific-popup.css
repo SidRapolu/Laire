@@ -153,7 +153,7 @@ button::-moz-focus-inner {
     color: #fff;
     font-style: normal;
     font-size: 28px;
-    font-family: Arial, Baskerville, monospace
+    font-family: 'Palanquin', sans-serif;
 }
 
 .mfp-close:hover, .mfp-close:focus {
