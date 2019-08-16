@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%
 }
@@ -1352,7 +1352,7 @@ html {
 }
 
 body {
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
@@ -1765,7 +1765,7 @@ address {
 }
 
 code, kbd, pre, samp {
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 code {
@@ -6418,7 +6418,7 @@ button.close {
     position: absolute;
     z-index: 1070;
     display: block;
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -6552,7 +6552,7 @@ button.close {
     display: none;
     max-width: 276px;
     padding: 1px;
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -6843,7 +6843,7 @@ button.close {
 .carousel-control .icon-next, .carousel-control .icon-prev {
     width: 20px;
     height: 20px;
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1
 }
 
