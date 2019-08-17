@@ -1,4 +1,10 @@
 (function($) {
+    $("button").click(function() {
+        $('html,body').animate({
+                scrollTop: $(".second").offset().top
+            },
+            'slow');
+    });
     "use strict"
     $(window).on('load', function() {
         $("#preloader").delay(600).fadeOut();
