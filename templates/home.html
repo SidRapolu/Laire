@@ -591,6 +591,15 @@
 
       </div>
 
+      <div class="col-md-8 col-md-offset-2">
+                          <form action="{{url_for('contact_email')}}" method="post" class="contact-form">
+                              <input type="text" class="input" name="Name" placeholder="Name">
+                              <input type="email" class="input" name="Email" placeholder="Email">
+                              <input type="text" class="input" name="Subject" placeholder="Subject">
+                              <textarea class="input" name="Message" placeholder="Message"></textarea>
+                              <button class="main-btn" style="color:black;border-radius:50vh;">Send message</button>
+                          </form>
+                      </div>
     </div>
 
   </div>
