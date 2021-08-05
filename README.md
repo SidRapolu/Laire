@@ -1,2 +1,2 @@
 # laire
-Website focused on user interface; includes form submission for contact.
+Website to advertise contract-based company with built in contacting and user-friendly experience.
